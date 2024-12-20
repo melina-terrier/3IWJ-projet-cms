@@ -1,0 +1,33 @@
+# Fichiers de sauvegarde de l'éditeur
+*.swp
+*.bak
+*.tmp
+*.orig
+
+# Fichiers systèmes
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Dépendances Node.js
+node_modules/
+
+# Dépendances Python
+__pycache__/
+*.py[cod]
+
+# Dossiers de build/compilation
+dist/
+build/
+out/
+
+# Configurations locales
+.env
+.vscode/
+.idea/
+*.iml
+
+# Connexion
+connexion.txt
