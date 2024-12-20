@@ -1,0 +1,16 @@
+.services{
+    padding-top: rem(132);
+    
+    h2{
+        padding-bottom: rem(64);
+    }
+    
+    .services-container{
+        display: flex;
+    
+        .service-image{
+            width: 25%;
+            object-fit: cover;
+        }
+    }
+}

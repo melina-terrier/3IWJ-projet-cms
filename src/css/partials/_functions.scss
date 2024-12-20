@@ -1,0 +1,10 @@
+@function rem($val){
+	@return $val / 16 * 1rem;
+}
+
+
+// @mixin reset-list{
+// 	margin: 0;
+// 	padding: 0;
+// 	list-style: none;
+// }

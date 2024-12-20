@@ -1,0 +1,29 @@
+/**
+ * Theme Name:        ESGI Theme
+ * Theme URI:         https://esgi.fr
+ * Description:       A theme for the final project of the WordPress course at ESGI.
+ * Version:           1.0.0
+ * Author:            SANKARE Jordan and TERRIER Mélina
+ * Author URI:        https://example.com
+ * Tags:              minimalist, light mode, responsive
+ * Text Domain:       ESGI
+ * Domain Path:       /
+ * Tested up to:      6.4
+ * Requires at least: 6.2
+ * Requires PHP:      7.4
+ * License:           GNU General Public License v2.0 or later
+ * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+ */
+
+
+@import "vendor/modern-normalize";
+@import "partials/functions";
+
+@import "partials/colors";
+@import "partials/fonts";
+@import "partials/globals";
+
+@import "components/header";
+@import "components/services";
+@import "components/partners";
+@import "components/error";
