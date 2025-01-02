@@ -6,12 +6,12 @@ if (post_password_required()) {
 
 <div id="comments" class="comments-area">
     <?php if (have_comments()) : ?>
-        <h2 class="comments-title">
+        <h4 class="comments-title">
             <?php
             $comments_number = get_comments_number();
             printf(__('Comments (%s)', 'esgi'), $comments_number);
             ?>
-        </h2>
+        </h4>
 
         <ul class="comment-list">
             <?php
@@ -31,20 +31,25 @@ if (post_password_required()) {
     <?php endif; ?>
 
     <div id="respond" class="comment-respond">
-        <h3 class="reply-title"><?php _e('Leave a Reply', 'esgi'); ?></h3>
-        <?php
-        comment_form(array(
-            'fields' => array(
-                'author' => '<p class="comment-form-author"><label for="author">' . __('Full Name', 'esgi') . '</label>' .
-                    '<input id="author" name="author" type="text" value="" size="30" /></p>',
-            ),
-            'comment_field' => '<p class="comment-form-comment"><label for="comment">' . __('Message', 'esgi') . '</label>' .
-                '<textarea id="comment" name="comment" rows="5" required></textarea></p>',
-            'title_reply' => '',
-            'label_submit' => __('Send', 'esgi'),
-            'comment_notes_before' => '',
-            'comment_notes_after' => '',
-        ));
-        ?>
-    </div>
+    <h4 class="reply-title"><?php _e('Leave a Reply', 'esgi'); ?></h4>
+    <?php
+    comment_form(array(
+        'fields' => array(
+            'author' => '<p class="comment-form-author"><label for="author">' . __('Full Name', 'esgi') . '</label>' .
+                '<input id="author" name="author" type="text" value="" size="30" /></p>',
+        ),
+        'comment_field' => '<p class="comment-form-comment">
+            <label for="comment">' . __('Message', 'esgi') . '</label>' .
+            '<textarea id="comment" name="comment" rows="5" required></textarea></p>',
+        'title_reply' => '',
+        'label_submit' => __('Submit', 'esgi'),
+        'logged_in_as' => '<p class="logged-in-as">' . 
+            sprintf(
+                __('You are logged in as %1$s. <a href="%2$s">Log out?</a>', 'esgi'),
+                '<a href="' . esc_url(get_edit_user_link()) . '">' . $user_identity . '</a>',
+                esc_url(wp_logout_url(apply_filters('the_permalink', get_permalink())))
+            ) . '</p>',
+    ));
+    ?>
+</div>
 </div>

@@ -1,17 +1,16 @@
-$dark_blue: #050A3A;
-$white: #FFF;
-$grey: #8A8A8A;
-$pink: #FF4FC0;
-$orange: #FFD0A8;
+$dark_blue: var(--color-1);
+$grey: var(--color-2);
+$pink: var(--color-3);
+$orange: var(--color-4);
 
 :root{
-	--bg-color: #{$white};
+	--bg-color: white;
 	--text-color: #{$grey};
 	--main-color: #{$dark_blue};
 }
 
 .dark{
 	--bg-color: #{$dark_blue};
-	--text-color: #{$white};
+	--text-color: white;
 }
 

@@ -35,3 +35,20 @@ function ajaxifyLinks() {
 		});
 	});
 }
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const btnMenu = document.querySelector('.btn-menu');
+    const menu = document.querySelector('.menu-container');
+    const header = document.getElementById('site-header');
+
+    btnMenu.addEventListener('click', function () {
+        // Toggle la classe .svg sur le bouton
+        btnMenu.classList.toggle('svg');
+
+        // Activer/désactiver les classes sur le menu et le header
+        menu.classList.toggle('active');
+        header.classList.toggle('active');
+    });
+});
+

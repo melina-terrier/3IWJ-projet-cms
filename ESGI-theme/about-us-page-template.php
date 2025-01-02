@@ -15,7 +15,7 @@ get_header();
 
             <?php if (has_post_thumbnail()) : ?>
                 <div class="featured-image">
-                    <?php the_post_thumbnail('large', ['style' => 'max-width: 100%; height: auto; margin-bottom: 20px;']); ?>
+                    <?php the_post_thumbnail('large', ['style' => 'max-width: 100%; height: auto;']); ?>
                 </div>
             <?php endif; ?>
 
@@ -24,6 +24,7 @@ get_header();
             </div>
         <?php 
             include 'template-parts/about-us.php';
+            include 'template-parts/members.php';
         endwhile;
     endif;
     ?>

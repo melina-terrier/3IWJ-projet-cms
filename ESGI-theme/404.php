@@ -2,10 +2,12 @@
 get_header();
 ?>
 
-<div class="dark">
+<div class="page-container">
     <h1>404 Error.</h1>
-    <p>The page you were looking for couldn't be found.</p>
-    <p>Maybe try a search?</p>
+    <div class="text">
+        <p>The page you were looking for couldn't be found.</p>
+        <p>Maybe try a search?</p>
+    </div>
     <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>">
         <input type="search" name="s" placeholder="Type something to search" >
         <button type="submit">

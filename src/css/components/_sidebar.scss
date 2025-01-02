@@ -1,0 +1,82 @@
+aside{
+    width: calc(35% - rem(48));
+    margin-right: rem(48);
+
+    h6{
+        padding: rem(64) 0 rem(17) 0;
+    }
+
+    ul{
+        li{
+            @include text2;
+            margin: rem(10) 0;
+            list-style: none;
+            position: relative;
+            padding-left: 20px; 
+            &::before{
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 5px; 
+                height: 5px; 
+                border-radius: 50%;
+                background: linear-gradient(45deg, #ff7eb3, #ff758c, #ff6a4d);
+            }
+            a{
+                color: $grey;
+
+            }
+        }
+    }
+
+    .wp-block-tag-cloud{
+        display: flex;
+        padding-top: rem(23);
+        gap: rem(10);
+        flex-wrap: wrap;
+
+        a{
+            margin: 0;
+            padding: rem(8);
+            background-color: #F8F8F8;
+            color: #969696;
+            font-size: rem(13) !important;
+            font-weight: 700;
+        }
+    }
+
+    form{
+        position: relative;
+
+        input{
+            border: none !important;
+            width: 100%;
+            position: relative;
+
+            &::after{
+                content: "";
+                display: block;
+                width: 100%;
+                height: 1px;
+                background-color: black;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+            }
+        }
+
+        button{
+            background-color: transparent;
+            border: none;
+            position: absolute;
+            right: 0;
+
+            span{
+                display: block;
+                height: fit-content;
+            }
+        }
+    }
+}

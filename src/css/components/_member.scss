@@ -1,0 +1,31 @@
+.members{
+    max-width: rem(1600);
+    margin: rem(140) auto;
+
+    .members_list{
+        margin-top: rem(64);
+        display: flex;
+        flex-wrap: wrap;
+
+        .member{
+            width: calc((100% - rem(48) * 3) / 4);
+            margin-right: rem(48);
+
+            &:nth-of-type(4n){
+                margin-right: 0;
+            }
+
+            img{
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+                margin-bottom: rem(35);
+            }
+
+            p{
+                @include text2;
+                margin-top: rem(24);
+            }
+        }
+    }
+}

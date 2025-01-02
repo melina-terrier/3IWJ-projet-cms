@@ -11,15 +11,30 @@
 <body <?php body_class(); ?>>
 
     <?php wp_body_open(); ?>
+
     <header id="site-header">
 
-        <?php the_custom_logo(); ?>
+        <div class="header-content">
 
-        <img src="/wp-content/uploads/2024/12/menu.svg">
+            <?php 
+            $logo_url = wp_get_attachment_image_src(get_theme_mod('custom_logo'), 'full')[0]; 
+            if (strpos($logo_url, '.svg') !== false) {
+                $svg_content = file_get_contents($logo_url);
+                echo $svg_content;
+            } else {
+                echo '<img src="' . esc_url($logo_url) . '" alt="Logo">';
+            }
+            ?>
+    
+            <div class="btn-menu">
+                <img src="/wp-content/uploads/2024/12/menu.svg">
+            </div>
+        
+        </div>
 
-        <div class="menu">
+        <div class="menu-container">
+            
             <p>Or try search</p>
-            <span>x</span>
             <?php
             wp_nav_menu([
                 'theme_location' => 'primary_menu',

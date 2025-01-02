@@ -1,10 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap");
-$font1: "Mulish", sans-serif;
+@import url("https://use.typekit.net/wjg7jsy.css");
+$font1: "Muli", sans-serif;
 
 
 h1, h2, h3, h4, h5, h6 {
 	color: $dark_blue;
 }
+
 h1 {
 	font-family: $font1;
 	font-size: rem(84);
@@ -24,6 +25,7 @@ h3 {
 h4 {
 	font-family: $font1;
 	font-size: rem(35);
+	line-height: rem(42);
     font-weight: 600;
 }
 h5 {
@@ -42,6 +44,7 @@ h6 {
 	font-size: rem(26);
 	line-height: rem(42);
 }
+
 @mixin text2 {
 	font-family: $font1;
 	font-size: rem(20);

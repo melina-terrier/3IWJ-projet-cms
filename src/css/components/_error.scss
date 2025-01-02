@@ -1,4 +1,51 @@
-input{
-    border: none;
-    border-bottom: 1px solid white;
+.error404{
+
+    .page-container{
+        max-width: rem(1600);
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        gap: rem(51);
+
+        p{
+            @include text1;
+        }
+
+        form{
+            position: relative;
+            width: fit-content;
+            margin: rem(10) 0 rem(44) 0;
+
+            input{
+                border: none;
+                width: rem(1051);
+                padding-bottom: rem(8);
+                position: relative;
+
+                &::after{
+                    content: "";
+                    display: block;
+                    width: 100%;
+                    height: 1px;
+                    background-color: black;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                }
+            }
+
+            button{
+                background-color: transparent;
+                border: none;
+                position: absolute;
+                right: 0;
+
+                span{
+                    display: block;
+                    height: fit-content;
+                }
+            }
+        }
+    }
 }
+

@@ -19,17 +19,15 @@ $the_query = new WP_Query($args);
                 <a href="<?php echo esc_url(get_permalink()); ?>" class="post-thumbnail">
                     <?php if (has_post_thumbnail()) : ?>
                         <?php the_post_thumbnail('medium'); ?>
-                    <?php else : ?>
-                        <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/default-thumbnail.jpg" alt="<?php the_title_attribute(); ?>">
                     <?php endif; ?>
                 </a>
+                <span class="post-category">
+                    <?php the_category(', '); ?>
+                </span>
                 <div class="post-content">
-                    <span class="post-category">
-                        <?php the_category(', '); ?>
-                    </span>
-                    <h2 class="post-title">
+                    <h4 class="post-title">
                         <a href="<?php echo esc_url(get_permalink()); ?>"><?php the_title(); ?></a>
-                    </h2>
+                    </h4>
                     <div class="post-excerpt">
                         <?php the_excerpt(); ?>
                     </div>
