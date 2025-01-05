@@ -45,7 +45,7 @@
 
         <div class="menu-container">
             
-            <a id="search-button" href="/recherche">Or try search</a>
+            <a id="search-button" href="/search">Or try search</a>
 
             <?php
             wp_nav_menu([

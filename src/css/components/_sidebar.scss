@@ -10,6 +10,7 @@ aside{
     }
 
     ul.wp-block-latest-posts__list{
+        padding-top: rem(10);
         li{
             margin-bottom: rem(36);
             width: 80%;
@@ -44,15 +45,15 @@ aside{
             margin: rem(10) 0;
             list-style: none;
             position: relative;
-            padding-left: 20px; 
+            padding-left: rem(20); 
             &::before{
                 content: '';
                 position: absolute;
                 left: 0;
                 top: 50%;
                 transform: translateY(-50%);
-                width: 5px; 
-                height: 5px; 
+                width: rem(5); 
+                height: rem(5); 
                 border-radius: 50%;
                 background: linear-gradient(45deg, $pink, $orange);
             }
@@ -76,6 +77,27 @@ aside{
             color: #969696;
             font-size: rem(13) !important;
             font-weight: 700;
+        }
+    }
+}
+
+.dark .wp-block-tag-cloud a{
+    color: $dark_blue !important;
+}
+@media screen and (max-width: 1024px){
+    aside{
+        width: 100%;
+        padding: rem(36) 0;
+        h6{
+            padding: rem(36) 0;
+        }
+        ul.wp-block-latest-posts__list{
+            li{
+                width: 100%;
+                div{
+                    margin-right: 0;
+                }
+            }
         }
     }
 }

@@ -13,11 +13,9 @@ get_header();
         while (have_posts()) : the_post(); ?>
         
             <h1><?php the_title(); ?></h1>
-            <section class="services">
             <?php
             include 'template-parts/services.php';
             ?>
-            </section>
 
             <div class="page-content">
                 <?php the_content(); ?>

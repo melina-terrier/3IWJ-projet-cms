@@ -7,8 +7,8 @@ form{
     input:not([type="submit"]){
         border: none !important;
         background: transparent;
-        border-bottom: 1px solid #D8D8D8 !important;
-        padding-bottom: 8px !important;
+        border-bottom: 1px solid $grey !important;
+        padding-bottom: rem(8) !important;
         width: 100%;
         @include text2;
 
@@ -35,7 +35,7 @@ form{
         textarea{
             border: none;
             background: transparent;
-            border-bottom: rem(1) solid #D8D8D8;
+            border-bottom: rem(1) solid $grey;
             padding-bottom: rem(8);
             width: 100%;
             padding-left: rem(10);
@@ -53,10 +53,10 @@ form{
     input[type="submit"]{
         background-color: transparent;
         border: none;
-        color: darkblue;
-        font-size: 20px;
+        color: $dark_blue;
+        font-size: rem(20);
         font-weight: 800;
-        letter-spacing: 1px;
+        letter-spacing: rem(1);
     }
 }
 

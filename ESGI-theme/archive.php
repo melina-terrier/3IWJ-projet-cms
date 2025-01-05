@@ -2,7 +2,7 @@
 get_header(); 
 ?>
 
-<div class="page-container wrapper">
+<div class="page-container wrapper archive">
 
             <?php if (have_posts()) : ?>
                 
