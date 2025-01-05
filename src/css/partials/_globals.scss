@@ -7,8 +7,31 @@
 body {
 	background-color: var(--bg-color);
 	color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
+
 a{
     text-decoration: none;
 }
 
+.page-container{
+    flex: 1;
+    padding: rem(36);
+    width: 100%;
+
+    &.wrapper{
+        max-width: rem(1600);
+        margin: auto;
+    }
+}
+
+
+
+// Style qui revient souvent
+/*
+    max-width: rem(1600);
+    margin: rem(76) auto 0 auto;
+
+*/

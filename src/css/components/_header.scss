@@ -12,7 +12,7 @@
     .header-content{
         display: flex;
         justify-content: space-between;
-        padding: rem(50) 0 rem(25) 0;
+        padding: rem(50) rem(36) rem(25) rem(36);
         align-items: center;
         max-width: rem(1600);
         margin: auto;
@@ -24,7 +24,11 @@
         .btn-menu{
             cursor: pointer;
             
-            &.svg img {
+            svg rect{
+                fill: $dark_blue;
+            }
+            
+            &.svg svg {
                 display: none;
             }
 
@@ -44,8 +48,8 @@
     .menu-container{
         display: none;
         background-color: $dark_blue;
-        padding-bottom: 100px;
         max-width: 1600px;
+        padding: rem(36) rem(36) rem(100) rem(36);
         margin: auto;
         justify-content: space-between;
         
@@ -83,12 +87,31 @@
             }
         }
 
-        p{
+        a{
             font-size: rem(20);
             font-weight: 800;
             letter-spacing: rem(1);
             color: white;
-            margin-top: rem(15);
+        }
+    }
+}
+
+
+.dark svg path, .dark svg rect{
+    fill: white !important;
+}
+
+@media screen and (max-width: 960px){
+    #site-header{
+        .menu-container{
+            flex-direction: column;
+            gap: rem(60);
+
+            .menu{
+                align-items: start;
+                text-align: left;
+            }
+
         }
     }
 }

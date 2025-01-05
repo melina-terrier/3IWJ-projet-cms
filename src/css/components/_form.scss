@@ -1,0 +1,56 @@
+form{
+    display: flex;
+    flex-direction: column;
+    gap: rem(32);
+    align-items: start;
+
+    input:not([type="submit"]){
+        border: none !important;
+        background: transparent;
+        border-bottom: 1px solid #D8D8D8 !important;
+        padding-bottom: 8px !important;
+        width: 100%;
+        @include text2;
+    }
+
+    .textarea-container {
+        position: relative;
+        width: 100%;
+
+        &::after{
+            content: '';
+            position: absolute;
+            top: rem(8);
+            left: 0;
+            width: rem(3);
+            height: rem(18);
+            background-color: $dark_blue;
+        }
+
+        textarea{
+            border: none;
+            background: transparent;
+            border-bottom: rem(1) solid #D8D8D8;
+            padding-bottom: rem(8);
+            width: 100%;
+            padding-left: rem(10);
+            position: relative;
+            @include text2;
+        }
+    }
+
+
+    button{
+        border: none;
+        background-color: transparent;
+    }
+
+    input[type="submit"]{
+        background-color: transparent;
+        border: none;
+        color: darkblue;
+        font-size: 20px;
+        font-weight: 800;
+        letter-spacing: 1px;
+    }
+}

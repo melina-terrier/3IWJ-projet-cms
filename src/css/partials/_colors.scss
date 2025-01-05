@@ -1,7 +1,7 @@
-$dark_blue: var(--color-1);
-$grey: var(--color-2);
-$pink: var(--color-3);
-$orange: var(--color-4);
+$dark_blue: var(--primary-color);
+$grey: var(--secondary-color);
+$pink: var(--gradient-color-1);
+$orange: var(--gradient-color-2);
 
 :root{
 	--bg-color: white;
@@ -14,3 +14,8 @@ $orange: var(--color-4);
 	--text-color: white;
 }
 
+.dark {
+	a, h1, h2, h3, h4, h5, h6, p, button{
+		color: white;
+	}
+}

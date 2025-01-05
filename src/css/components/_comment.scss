@@ -19,29 +19,44 @@
                 @include text2;
             }
 
-            .reply-link a {
-                color: darkblue;
-                font-size: 20px;
-                font-weight: 800;
-                letter-spacing: 1px;
-            }
+            .reply-link{
+                display: flex;
+                gap: rem(16);
+                align-items: center;
+                
+                a {
+                    color: $dark_blue;
+                    font-size: 20px;
+                    font-weight: 800;
+                    letter-spacing: 1px;
+                }
+            } 
         }
     }
+
+
+
     h4.reply-title{
-       font-size: 38px; 
+        font-size: 38px; 
+        padding: rem(139) 0 rem(56) 0;
     }
 
-    textarea{
-        border: none;
-        border-bottom: 1px solid blue;
+    h3.reply-title{
+        display: flex;
+        gap: 16px;
+        align-items: baseline;
+
+        a{
+            color: $dark_blue;
+        }
+
+        #cancel-comment-reply-link {
+            font-size: rem(13);
+            margin-left: rem(56);
+        }
+    
     }
 
-    input[type="submit"]{
-        background-color: transparent;
-        border: none;
-        color: darkblue;
-        font-size: 20px;
-        font-weight: 800;
-        letter-spacing: 1px;
-    }
+
+    
 }
