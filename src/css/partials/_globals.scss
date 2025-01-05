@@ -18,8 +18,8 @@ a{
 
 .page-container{
     flex: 1;
-    padding: rem(36);
     width: 100%;
+    padding: rem(36) rem(36) rem(56) rem(36);
 
     &.wrapper{
         max-width: rem(1600);

@@ -435,7 +435,7 @@ function register_custom_post_type(){
     $args = array(
         'labels' => $member_labels,
         'public' => true,
-        'has_archive' => true,
+        'has_archive' => false,
         'rewrite' => array('slug' => 'members'),
         'menu_icon' => 'dashicons-groups',
         'supports' => array('title', 'editor', 'thumbnail'),
@@ -554,3 +554,16 @@ function esgi_contact_section_shortcode() {
     return $output;
 }
 add_shortcode('contact_info', 'esgi_contact_section_shortcode');
+
+
+// Utilisation du template d'achive pour la page blog 
+function use_archive_template_for_blog($template) {
+    if (is_home()) {
+        $archive_template = locate_template('archive.php');
+        if ($archive_template) {
+            return $archive_template;
+        }
+    }
+    return $template;
+}
+add_filter('template_include', 'use_archive_template_for_blog');

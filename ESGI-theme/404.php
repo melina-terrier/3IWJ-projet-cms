@@ -8,7 +8,7 @@ get_header();
         <p>The page you were looking for couldn't be found.</p>
         <p>Maybe try a search?</p>
     </div>
-    <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>">
+    <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="search-form">
         <input type="search" name="s" placeholder="Type something to search..." >
         <button type="submit">
             <span>

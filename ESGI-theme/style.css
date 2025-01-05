@@ -204,7 +204,7 @@ summary {
   --text-color: white;
 }
 
-.dark a, .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6, .dark p, .dark button {
+.dark a, .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6, .dark p, .dark button, .dark input {
   color: white;
 }
 
@@ -294,8 +294,8 @@ a {
 
 .page-container {
   flex: 1;
-  padding: 2.25rem;
   width: 100%;
+  padding: 2.25rem 2.25rem 3.5rem 2.25rem;
 }
 .page-container.wrapper {
   max-width: 100rem;
@@ -499,6 +499,7 @@ a {
   }
 }
 .partners {
+  margin: 8.25rem auto 0 auto;
   padding: 2.25rem;
 }
 .partners h2 {
@@ -525,11 +526,10 @@ a {
 @media screen and (max-width: 400px) {
   .partners .partners-container {
     justify-content: center;
+    gap: 5.75rem;
   }
 }
 .error404 .page-container {
-  max-width: 100rem;
-  margin: 4.75rem auto 0 auto;
   display: flex;
   flex-direction: column;
   gap: 3.1875rem;
@@ -540,20 +540,7 @@ a {
   line-height: 2.625rem;
 }
 .error404 .page-container form {
-  position: relative;
-  width: fit-content;
   margin: 0.625rem 0 2.75rem 0;
-}
-.error404 .page-container form input {
-  width: 65.6875rem;
-}
-.error404 .page-container form button {
-  position: absolute;
-  right: 0;
-}
-.error404 .page-container form button span {
-  display: block;
-  height: fit-content;
 }
 
 .single-post-layout.page-container {
@@ -707,24 +694,15 @@ aside .wp-block-tag-cloud a {
 }
 
 .search-results-list {
-  margin-top: 8.6875rem;
-  margin-bottom: 8.625rem;
-  display: flex;
-  flex-wrap: wrap;
+  margin: 8.625rem 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 3rem;
 }
 .search-results-list .search-result-item {
   display: flex;
   flex-direction: column;
   gap: 1.6875rem;
-  width: calc((100% - 6rem) / 3);
-  margin-right: 3rem;
-  margin-top: 3.625rem;
-}
-.search-results-list .search-result-item:nth-child(3n) {
-  margin-right: 0;
-}
-.search-results-list .search-result-item:nth-child(-n+3) {
-  margin-top: 0;
 }
 .search-results-list .search-result-item .search-result-title a {
   color: var(--primary-color);
@@ -743,22 +721,27 @@ aside .wp-block-tag-cloud a {
   color: var(--primary-color);
 }
 
-.search-form-container {
-  max-width: 100rem;
-  margin: 4.75rem auto 0 auto;
-}
 .search-form-container h1 {
   margin-bottom: 7.375rem;
 }
-.search-form-container form {
-  position: relative;
-  width: 65.6875rem;
-}
-.search-form-container form button {
-  position: absolute;
-  right: 0;
-}
 
+@media screen and (max-width: 1024px) {
+  .search-form-container h1 {
+    margin-bottom: 4rem;
+  }
+}
+@media screen and (max-width: 1500px) {
+  .search-results-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media screen and (max-width: 940px) {
+  .search-results-list {
+    grid-template-columns: 1fr;
+    gap: 4.5rem;
+    margin: 4.5rem 0;
+  }
+}
 .post-comments {
   margin-top: 6.25rem;
 }
@@ -920,6 +903,7 @@ aside .wp-block-tag-cloud a {
 }
 
 .page-template-partners-template-page .partners {
+  margin-bottom: 16.8125rem;
   padding: 0;
 }
 
@@ -1004,14 +988,14 @@ aside .wp-block-tag-cloud a {
   font-weight: 800;
 }
 
-.blog .page-container {
+.archive .page-container {
   max-width: 100rem;
   margin: 4.75rem auto;
 }
-.blog .page-container h1 {
+.archive .page-container h1 {
   margin-bottom: 8rem;
 }
-.blog .page-container .row {
+.archive .page-container .row {
   display: flex;
   gap: 3rem;
 }
@@ -1032,6 +1016,10 @@ form input:not([type=submit]) {
   font-size: 1.25rem;
   line-height: 2.375rem;
 }
+form input:not([type=submit]):focus {
+  outline: none;
+  border: none;
+}
 form .textarea-container {
   position: relative;
   width: 100%;
@@ -1043,6 +1031,7 @@ form .textarea-container::after {
   left: 0;
   width: 0.1875rem;
   height: 1.125rem;
+  background-color: var(--primary-color);
 }
 form .textarea-container textarea {
   border: none;
@@ -1067,6 +1056,25 @@ form input[type=submit] {
   font-size: 20px;
   font-weight: 800;
   letter-spacing: 1px;
+}
+
+form.search-form {
+  position: relative;
+  width: 65%;
+}
+form.search-form button {
+  position: absolute;
+  right: 0;
+}
+form.search-form button span {
+  display: block;
+  height: fit-content;
+}
+
+@media screen and (max-width: 1024px) {
+  form.search-form {
+    width: 100%;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
