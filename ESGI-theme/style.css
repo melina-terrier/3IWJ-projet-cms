@@ -1043,7 +1043,6 @@ form .textarea-container::after {
   left: 0;
   width: 0.1875rem;
   height: 1.125rem;
-  background-color: var(--primary-color);
 }
 form .textarea-container textarea {
   border: none;
