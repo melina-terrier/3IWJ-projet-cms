@@ -51,7 +51,7 @@ function customizer_sections($wp_customize) {
 
     for ($i = 1; $i <= 4; $i++) {
         $wp_customize->add_setting("partner_logo_$i", array(
-            'default'           => get_template_directory_uri() . "/assets/images/partner-$i.png",
+            'default'           => get_template_directory_uri() . "/assets/images/partner-$i.svg",
             'sanitize_callback' => 'esc_url_raw',
             'transport'         => 'refresh',
         ));
