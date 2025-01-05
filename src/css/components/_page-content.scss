@@ -1,11 +1,6 @@
 .page-container .template{
     margin-top: rem(76);
 
-    // h1{
-    //     max-width: rem(1600);
-    //     margin: auto;
-    // }
-
     .featured-image{
         width: 75%;
         margin-top: rem(128);
@@ -40,18 +35,43 @@
 
 .page-template-services-page-template{
     .page-container{
-        .page-content{
+        .page-content, h1{
             max-width: rem(1600);
-            margin: rem(132) auto;
+            margin: 0 auto rem(65) auto;
+            padding: 0 rem(32);
+        }
+        .page-content{
+            display: flex;
+            flex-direction: column;
+            gap: rem(16);
+            max-width: rem(1600);
+            padding: rem(130) rem(32);
 
-            p, h2{
-                width: 50%;
+            p{
+                width: 40%;
             }
+        }
+        .services{
+            padding-top: 0;
         }
     }
 
-    .featured-image{
+    .featured-image img{
+        height: auto;
         width: 100%;
+    }
+}
+
+@media screen and (max-width: 960px){
+    .page-template-services-page-template{
+        .page-container{
+            .page-content{
+                padding: rem(32);
+                p{
+                    width: 100%;
+                }
+            }
+        }
     }
 }
 
@@ -62,38 +82,97 @@
     }
 }
 
+.page-template-about-us-page-template{
+    h1{
+        margin: 0 auto rem(128) auto;
+        max-width: rem(1600);
+        padding: 0 rem(32);
+    }
+    .featured-image{
+        display: flex;
+        justify-content: end;
+
+        img{
+            width: 78%;
+            height: auto;
+        }
+    }
+    .page-content{
+        padding-top: rem(130);
+        width: 40%;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        gap: rem(16);
+    }
+}
+
+@media screen and (max-width: 960px){
+    .page-template-about-us-page-template{
+        .page-container{
+            padding: 0 rem(32);
+
+            h1{
+                margin-bottom: rem(32);
+                padding: 0;
+            }
+        }
+        .page-content{
+            width: 100%;
+            padding-top: rem(72);
+        }
+        .featured-image img{
+            width: 100%;
+        }
+    }
+}
+
+
 .page-default{
     margin-top: rem(76);
 
-    h1, p{
+    
+    h1, p:first-child{
         max-width: rem(1600);
         margin: auto;
+        padding: 0 rem(32);
     }
-
-    .esgi-contact-columns{
-        display: flex;
-        margin: 132px auto;
-        justify-content: end;
-        max-width: 1600px;
-        gap: rem(92);
-
-        h5{
-            padding-bottom: rem(24);
-            text-align: right
-        }
+    
+    .page-content{
+        padding-top: rem(44);
 
         p{
-            @include text2;
-            text-align: right;
+            @include text1;
+        }
+
+        .esgi-contact-columns{
+            display: flex;
+            margin: rem(132) auto;
+            justify-content: end;
+            max-width: rem(1600);
+            gap: rem(92);
+            padding: 0 rem(32);
+    
+            h5{
+                padding-bottom: rem(24);
+                text-align: right
+            }
+    
+            p{
+                @include text2;
+                text-align: right;
+            }
+        }
+
+        .esgi-contact-image{
+            display: flex;
+            justify-content: end;
         }
     }
 
-    .esgi-contact-image{
-        display: flex;
-        justify-content: end;
-    }
 
     .contact-form-container{
+        padding: 0 rem(32);
         max-width: rem(1600);
         margin: rem(132) auto;
         h2{
@@ -101,6 +180,92 @@
         }
         form{
             padding-top: rem(64);
+            width: 65%;
+        }
+    }
+}
+
+@media screen and (max-width: 960px){
+    .page-default{
+        .page-content{
+            padding: rem(32);
+
+            h1, p{
+                padding: 0;
+            }
+
+            .esgi-contact-columns{
+                flex-direction: column;
+                gap: rem(50);
+                margin: rem(100) auto;
+                padding: 0;
+
+                h5, p{
+                    text-align: left;
+                }
+
+            }
+            
+            .esgi-contact-image img{
+                width: 100%;
+            }
+
+            .contact-form-container{
+                padding: 0;
+                h2{
+                    padding-bottom: rem(32);
+                }
+                form{
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+.home{
+    .featured-image{
+        display: flex;
+        justify-content: end;
+
+        img{
+            width: 78%;
+            height: auto;
+        }
+    }
+
+    .page-content{
+        width: 40%;
+        margin: auto;
+        padding-top: rem(140);
+        display: flex;
+        flex-direction: column;
+        gap: rem(16);
+    }
+
+    .partners{
+        padding-bottom: rem(269);
+    }
+}
+
+@media screen and (max-width: 1024px){
+    .home{
+        .page-container{
+            padding: 0 rem(32);
+
+            h1{
+                padding: 0;
+            }
+            .page-content{
+                width: 100%;
+                padding-top: rem(72);
+            }
+            .featured-image{
+                margin-top: rem(32);
+                img{
+                    width: 100%;
+                }
+            }
         }
     }
 }

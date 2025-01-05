@@ -69,3 +69,31 @@
         }
     }
 }
+
+.dark .tags-list a{
+    color: $dark_blue !important;
+}
+
+
+@media screen and (max-width: 1024px){
+    .single-post-layout.page-container{
+        margin: rem(36) auto;
+        padding: rem(0) rem(16);
+
+        h1{
+            margin-bottom: rem(64);
+        }
+
+        .row{
+            flex-direction: column-reverse;
+
+            article{
+                width: 100%;
+
+                .post-thumbnail{
+                    height: rem(300);
+                }
+            }
+        }
+    }
+}

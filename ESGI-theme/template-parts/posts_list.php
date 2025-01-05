@@ -44,11 +44,12 @@ $the_query = new WP_Query($args);
             'format'    => '?paged=%#%',
             'current'   => max(1, $paged),
             'total'     => $the_query->max_num_pages,
-            'prev_text' => __('&laquo; Previous', 'esgi'),
-            'next_text' => __('Next &raquo;', 'esgi'),
+            'prev_text' => '', // Texte vide pour masquer "précédent"
+            'next_text' => '', // Texte vide pour masquer "suivant"
         ]);
         ?>
     </nav>
+
     <?php else : ?>
         <p><?php _e('No posts found.', 'esgi'); ?></p>
     <?php endif; ?>

@@ -26,9 +26,9 @@
                 
                 a {
                     color: $dark_blue;
-                    font-size: 20px;
+                    font-size: rem(20);
                     font-weight: 800;
-                    letter-spacing: 1px;
+                    letter-spacing: rem(1);
                 }
             } 
         }
@@ -37,13 +37,13 @@
 
 
     h4.reply-title{
-        font-size: 38px; 
+        font-size: rem(38); 
         padding: rem(139) 0 rem(56) 0;
     }
 
     h3.reply-title{
         display: flex;
-        gap: 16px;
+        gap: rem(16);
         align-items: baseline;
 
         a{
@@ -57,6 +57,16 @@
     
     }
 
-
+    .comment-form-author{
+        order: -1;
+        width: 100%;
+    }
     
+}
+
+.dark .comment p, .dark .comment a, .dark .comment h5 {
+    color: $dark_blue !important;
+}
+.dark .comment svg path{
+    fill: $dark_blue !important;
 }

@@ -15,7 +15,7 @@ $orange: var(--gradient-color-2);
 }
 
 .dark {
-	a, h1, h2, h3, h4, h5, h6, p, button, input{
-		color: white;
+	a, h1, h2, h3, h4, h5, h6, p, button, input, button, textarea{
+		color: white !important;
 	}
 }

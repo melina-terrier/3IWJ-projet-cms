@@ -25,6 +25,10 @@
         
         .partners-container{
             gap: rem(50);
+
+            img{
+                width: 30%;
+            }
         }
     }
     
@@ -36,6 +40,10 @@
         .partners-container{
             justify-content: center;
             gap: rem(92);
+
+            img{
+                width: 40%;
+            }
         }
     }
     

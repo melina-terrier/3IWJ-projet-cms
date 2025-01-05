@@ -4,7 +4,7 @@ get_header();
 
 ?>
 
-<div class="page-container template">
+<div class="page-container template page-default <?php echo is_front_page() ? ' home' : ''; ?>">
     <?php
     if (have_posts()) :
         while (have_posts()) : the_post(); ?>

@@ -35,8 +35,8 @@
             &.svg::before {
                 content: '';
                 display: inline-block;
-                width: 24px;
-                height: 24px;
+                width: rem(24);
+                height: rem(24);
                 background: none;
                 mask: url('/wp-content/uploads/2024/12/close.svg') no-repeat center;
                 -webkit-mask: url('/wp-content/uploads/2024/12/close.svg') no-repeat center;
@@ -48,7 +48,7 @@
     .menu-container{
         display: none;
         background-color: $dark_blue;
-        max-width: 1600px;
+        max-width: rem(1600);
         padding: rem(36) rem(36) rem(100) rem(36);
         margin: auto;
         justify-content: space-between;
@@ -66,7 +66,7 @@
             gap: rem(21);
 
             li {
-                padding-bottom: 7px;
+                padding-bottom: rem(7);
                 
                 &.current-menu-item{
                     a::after{

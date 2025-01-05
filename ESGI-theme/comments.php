@@ -29,8 +29,8 @@
     <?php
     comment_form(array(
         'fields' => array(
-            'author' => '<p class="comment-form-author"><label for="author">' . __('Full Name', 'esgi') . '</label>' .
-                '<input id="author" name="author" type="text" value="" size="30" /></p>',
+            'author' => '<p class="comment-form-author">' .
+                '<input id="author" name="author" type="text" value="" size="30" placeholder="Full name"/></p>',
         ),
         'comment_field' => '<p class="comment-form-comment"><div class="textarea-container"><textarea id="comment" name="comment" rows="5" placeholder="Message" required></textarea></div></p>',
         'title_reply' => '',
@@ -41,6 +41,8 @@
                 '<a href="' . esc_url(get_edit_user_link()) . '">' . $user_identity . '</a>',
                 esc_url(wp_logout_url(apply_filters('the_permalink', get_permalink())))
             ) . '</p>',
+            'comment_notes_before' => '', // Supprime le texte explicatif avant les champs.
+    'comment_notes_after' => '',
     ));
     ?>
 </div>
