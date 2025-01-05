@@ -73,7 +73,7 @@ function customizer_sections($wp_customize) {
     ));
 
     $wp_customize->add_setting("about_image", array(
-        'default'           => get_template_directory_uri() . '/assets/images/about-image.jpg',
+        'default'           => get_template_directory_uri() . '/assets/images/about-image.png',
         'sanitize_callback' => 'esc_url_raw',
         'transport'         => 'refresh',
     ));
@@ -575,16 +575,17 @@ function my_contact_form_shortcode() {
 }
 add_shortcode('my_contact_form', 'my_contact_form_shortcode');
 
-
 // Ajout des couleurs dans le style
-function add_dynamic_styles_to_head() {
+function add_dynamic_styles_to_head() { 
     $custom_colors = [];
+    
+    // Récupérer les couleurs de gradient, avec des valeurs par défaut
     for ($i = 1; $i <= 2; $i++) {
-        $custom_colors[] = get_theme_mod("gradient_color_$i", '#ffffff');
+        $custom_colors[] = get_theme_mod("gradient_color_$i", $i === 1 ? '#FF4FC0' : '#FFD0A8');
     }
 
-    $primary_color = get_theme_mod('primary_color', '#007BFF');
-    $secondary_color = get_theme_mod('secondary_color', '#6C757D');
+    $primary_color = get_theme_mod('primary_color', '#050A3A');
+    $secondary_color = get_theme_mod('secondary_color', '#8A8A8A');
 
     echo '<style>
         :root {
@@ -596,6 +597,7 @@ function add_dynamic_styles_to_head() {
     </style>';
 }
 add_action('wp_head', 'add_dynamic_styles_to_head');
+
 
 
 function esgi_contact_section_shortcode() {
