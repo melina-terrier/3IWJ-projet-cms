@@ -1,5 +1,7 @@
 <?php
 
+require_once get_template_directory() . '/inc/seed-pages.php';
+
 // Ajout du menu
 add_action('after_setup_theme', 'esgi_register_nav_menus');
 function esgi_register_nav_menus()
@@ -31,6 +33,7 @@ function customizer_sections($wp_customize) {
     ));
 
     $wp_customize->add_setting('partners_title', array(
+        'default'           => __('Our Team', 'esgi'),
         'sanitize_callback' => 'sanitize_text_field',
         'transport'         => 'refresh',
     ));
@@ -42,8 +45,9 @@ function customizer_sections($wp_customize) {
         'description' => __('Change le titre de la section des partenaires.', 'esgi'),
     ));
 
-    for ($i = 1; $i <= 6; $i++) {
+    for ($i = 1; $i <= 4; $i++) {
         $wp_customize->add_setting("partner_logo_$i", array(
+            'default'           => get_template_directory_uri() . "/assets/images/partner-$i.png",
             'sanitize_callback' => 'esc_url_raw',
             'transport'         => 'refresh',
         ));
@@ -65,6 +69,7 @@ function customizer_sections($wp_customize) {
     ));
 
     $wp_customize->add_setting("about_image", array(
+        'default'           => get_template_directory_uri() . '/assets/images/about-image.jpg',
         'sanitize_callback' => 'esc_url_raw',
         'transport'         => 'refresh',
     ));
@@ -75,8 +80,21 @@ function customizer_sections($wp_customize) {
         'settings' => "about_image",
     )));
 
+    $default_about_titles = array(
+        __('Who are we ?', 'esgi'),
+        __('Our vision', 'esgi'),
+        __('Our mission', 'esgi')
+    );
+
+    $default_about_texts = array(
+        __('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu convallis elit, at convallis magna.', 'esgi'),
+        __(' Nullam faucibus interdum massa. Duis eget leo mattis, pulvinar nisi et, consequat lectus. Suspendisse commodo magna orci, id luctus risus porta pharetra. Fusce vehicula aliquet urna non ultricies.', 'esgi'),
+        __('Vivamus et viverra neque, ut pharetra ipsum. Aliquam eget consequat libero, quis cursus tortor. Aliquam suscipit eros sit amet velit malesuada dapibus. Fusce in vehicula tellus. Donec quis lorem ut magna tincidunt egestas. ', 'esgi')
+    );
+
     for ($i = 1; $i <= 3; $i++) {
         $wp_customize->add_setting("about_title_$i", array(
+            'default'           => $default_about_titles[$i-1],
             'sanitize_callback' => 'sanitize_text_field',
             'transport'         => 'refresh',
         ));
@@ -89,6 +107,7 @@ function customizer_sections($wp_customize) {
         ));
 
         $wp_customize->add_setting("about_text_$i", array(
+            'default'           => $default_about_texts[$i-1],
             'sanitize_callback' => 'sanitize_textarea_field',
             'transport'         => 'refresh',
         ));
@@ -111,6 +130,7 @@ function customizer_sections($wp_customize) {
     ));
 
     $wp_customize->add_setting('services_title', array(
+        'default'           => __('Our Professional Services', 'esgi'),
         'sanitize_callback' => 'sanitize_text_field',
         'transport'         => 'refresh',
     ));
@@ -123,6 +143,7 @@ function customizer_sections($wp_customize) {
     ));
 
     $wp_customize->add_setting('service_description', array(
+        'default'           => __('Private parties', 'esgi'),
         'sanitize_callback' => 'sanitize_text_field',
         'transport'         => 'refresh',
     ));
@@ -136,6 +157,7 @@ function customizer_sections($wp_customize) {
 
     for ($i = 1; $i <= 3; $i++) {
         $wp_customize->add_setting("service_image_$i", array(
+            'default'           => get_template_directory_uri() . "/assets/images/service-$i.png",
             'sanitize_callback' => 'esc_url_raw',
             'transport'         => 'refresh',
         ));
@@ -156,8 +178,24 @@ function customizer_sections($wp_customize) {
         'priority' => 80,
     ));
 
+    $default_contact_titles = array(
+        __('Location', 'esgi'),
+        __('Manager', 'esgi'),
+        __('CEO', 'esgi')
+    );
+
+    $default_contact_contents = array(
+        __('242 Rue du Faubourg Saint-Antoine
+        75020 Paris FRANCE', 'esgi'),
+        __('+33 1 53 31 25 23
+            info@company.com', 'esgi'),
+        __('+33 1 53 31 25 25
+        ceo@company.coma', 'esgi')
+    );
+
     for ($i = 1; $i <= 3; $i++) {
         $wp_customize->add_setting("contact_title_$i", array(
+            'default'           => $default_contact_titles[$i-1],
             'sanitize_callback' => 'sanitize_text_field',
             'transport'         => 'refresh',
         ));
@@ -170,6 +208,7 @@ function customizer_sections($wp_customize) {
         ));
 
         $wp_customize->add_setting("contact_content_$i", array(
+            'default'           => $default_contact_contents[$i-1],
             'sanitize_callback' => 'sanitize_textarea_field',
             'transport'         => 'refresh',
         ));
@@ -182,6 +221,7 @@ function customizer_sections($wp_customize) {
         ));
     }
     $wp_customize->add_setting("contact_image", array(
+        'default'           => get_template_directory_uri() . '/assets/images/contact-image.png',
         'sanitize_callback' => 'esc_url_raw',
         'transport'         => 'refresh',
     ));
@@ -202,6 +242,7 @@ function customizer_sections($wp_customize) {
     ));
 
     $wp_customize->add_setting('footer_copyright', array(
+        'default'           => __('2022  Figma Template by ESGI', 'esgi'),
         'sanitize_callback' => 'sanitize_text_field',
         'transport'         => 'refresh',
     ));
@@ -212,8 +253,21 @@ function customizer_sections($wp_customize) {
         'label'       => __('Copyright', 'esgi'),
     ));
 
+    $default_footer_titles = array(
+        __('Manager', 'esgi'),
+        __('CEO', 'esgi')
+    );
+
+    $default_footer_contents = array(
+        __("+33 1 53 31 25 23
+        info@esgi.com", 'esgi'),
+        __("+33 1 53 31 25 25
+        ceo@company.com", 'esgi')
+    );
+
     for ($i = 1; $i <= 2; $i++) {
         $wp_customize->add_setting("footer_title_$i", array(
+            'default'           => $default_footer_titles[$i-1],
             'sanitize_callback' => 'sanitize_text_field',
             'transport'         => 'refresh',
         ));
@@ -225,6 +279,7 @@ function customizer_sections($wp_customize) {
         ));
 
         $wp_customize->add_setting("footer_content_$i", array(
+            'default'           => $default_footer_contents[$i-1],
             'sanitize_callback' => 'sanitize_textarea_field',
             'transport'         => 'refresh',
         ));
@@ -245,8 +300,19 @@ function customizer_sections($wp_customize) {
         'priority' => 80,
     ));
 
+    $default_social_icons = array(
+        get_template_directory_uri() . '/assets/images/linkedin.svg',
+        get_template_directory_uri() . '/assets/images/facebook.svg'
+    );
+
+    $default_social_links = array(
+        'https://linkedin.com/yourcompany',
+        'https://facebook.com/yourcompany'
+    );
+
     for ($i = 1; $i <= 2; $i++) {
         $wp_customize->add_setting("social_icon_$i", array(
+            'default'           => $default_social_icons[$i-1],
             'sanitize_callback' => 'esc_url_raw',
             'transport'         => 'refresh',
         ));
@@ -258,6 +324,7 @@ function customizer_sections($wp_customize) {
         )));
 
         $wp_customize->add_setting("social_link_$i", array(
+            'default'           => $default_social_links[$i-1],
             'sanitize_callback' => 'esc_url_raw',
             'transport'         => 'refresh',
         ));
@@ -280,7 +347,7 @@ function customizer_sections($wp_customize) {
 
     // Définir la couleur primaire
     $wp_customize->add_setting('primary_color', array(
-        'default'           => '#007BFF', // Bleu par défaut
+        'default'           => '#050A3A',
         'sanitize_callback' => 'sanitize_hex_color',
         'transport'         => 'refresh',
     ));
@@ -293,7 +360,7 @@ function customizer_sections($wp_customize) {
 
     // Définir la couleur secondaire
     $wp_customize->add_setting('secondary_color', array(
-        'default'           => '#6C757D', // Gris par défaut
+        'default'           => '#595959',
         'sanitize_callback' => 'sanitize_hex_color',
         'transport'         => 'refresh',
     ));
@@ -305,9 +372,11 @@ function customizer_sections($wp_customize) {
     )));
 
     // Définir les couleurs pour les dégradés
+    $default_gradient_colors = array('#FF6B50', '#FF2E55');
+
     for ($i = 1; $i <= 2; $i++) {
         $wp_customize->add_setting("gradient_color_$i", array(
-            'default'           => $i === 1 ? '#ff7f50' : '#ff4500', // Couleurs par défaut pour le dégradé
+            'default'           => $default_gradient_colors[$i-1],
             'sanitize_callback' => 'sanitize_hex_color',
             'transport'         => 'refresh',
         ));
@@ -318,7 +387,6 @@ function customizer_sections($wp_customize) {
             'settings' => "gradient_color_$i",
         )));
     }
-
 }
 add_action('customize_register', 'customizer_sections');
 
