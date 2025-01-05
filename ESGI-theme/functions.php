@@ -134,7 +134,7 @@ function customizer_sections($wp_customize) {
     ));
 
     $wp_customize->add_setting('services_title', array(
-        'default'           => __('Our Professional Services', 'esgi'),
+        'default'           => __('Our Services', 'esgi'),
         'sanitize_callback' => 'sanitize_text_field',
         'transport'         => 'refresh',
     ));
