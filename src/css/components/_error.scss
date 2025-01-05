@@ -1,8 +1,7 @@
 .error404{
 
     .page-container{
-        max-width: rem(1600);
-        margin: rem(76) auto 0 auto;
+       
         display: flex;
         flex-direction: column;
         gap: rem(51);
@@ -12,23 +11,7 @@
         }
 
         form{
-            position: relative;
-            width: fit-content;
             margin: rem(10) 0 rem(44) 0;
-
-            input{
-                width: rem(1051);
-            }
-
-            button{
-                position: absolute;
-                right: 0;
-
-                span{
-                    display: block;
-                    height: fit-content;
-                }
-            }
         }
     }
 }

@@ -11,6 +11,11 @@ form{
         padding-bottom: 8px !important;
         width: 100%;
         @include text2;
+
+        &:focus{
+            outline: none;
+            border: none;
+        }
     }
 
     .textarea-container {
@@ -53,4 +58,26 @@ form{
         font-weight: 800;
         letter-spacing: 1px;
     }
+}
+
+form.search-form{
+    position: relative;
+    width: 65%;
+
+    button{
+        position: absolute;
+        right: 0;
+
+        span{
+            display: block;
+            height: fit-content;
+        }
+    }
+}
+
+@media screen and (max-width: 1024px){
+    form.search-form{
+        width: 100%;
+    }
+    
 }
