@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
-<div class="page-container search-results">
-    <h1><?php printf(__('Search results for: <span class="search-element">%s</span>', 'esgi-theme'), get_search_query()); ?></h1>
+<div class="page-container search-results wrapper">
+    <h1><?php printf(__('Search results for: <span class="search-element">%s</span>', 'esgi'), get_search_query()); ?></h1>
 
     <?php if (have_posts()) : ?>
         <ul class="search-results-list">
@@ -11,11 +11,24 @@
                         <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                     </h4>
                     <div class="search-result-meta">
-                        <span class="search-result-category">
-                            <?php echo get_the_category_list(', '); ?>
-                        </span>
-                        <span class="search-result-date">, <?php echo get_the_date(); ?></span>
+                        <?php
+                        $categories = get_the_category_list(', ');
+                        $date = get_the_date();
+
+                        if ($categories) {
+                            echo '<span class="search-result-category">' . $categories . '</span>';
+                        }
+
+                        if ($date) {
+                            // Ajouter la virgule uniquement si les catégories existent
+                            echo '<span class="search-result-date">';
+                            echo $categories ? ', ' : '';
+                            echo $date;
+                            echo '</span>';
+                        }
+                        ?>
                     </div>
+
                     <div class="search-result-excerpt">
                         <?php the_excerpt(); ?>
                     </div>
@@ -24,7 +37,7 @@
         </ul>
 
     <?php else : ?>
-        <p><?php _e('Sorry, no results found.', 'your-theme'); ?></p>
+        <p>Aucun élément trouvé.</p>
     <?php endif; ?>
 </div>
 

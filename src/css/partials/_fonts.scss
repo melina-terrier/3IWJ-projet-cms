@@ -50,3 +50,39 @@ h6 {
 	font-size: rem(20);
 	line-height: rem(38);
 }
+
+a{
+	color: $dark_blue;
+}
+
+@media screen and (max-width: 1024px){
+	h1 {
+		font-size: rem(50);
+	}
+	h2 {
+		font-size: rem(45);
+	}
+	h3 {
+		font-size: rem(35);
+	}
+	h4 {
+		font-size: rem(30);
+	}
+	h5 {
+		font-size: rem(25);
+	}
+	h6 {
+		font-size: rem(18);
+	}
+
+	@mixin text1 {
+		font-size: rem(22);
+		line-height: rem(36);
+	}
+
+	@mixin text2 {
+		font-size: rem(18);
+		line-height: rem(32);
+	}
+	
+}

@@ -5,7 +5,7 @@
     .row{
         display: flex;
         justify-content: space-between;
-        padding: rem(75) 0;
+        padding: rem(75) rem(36);
         max-width: rem(1600);
         margin: auto;
 
@@ -39,5 +39,24 @@
                 color: white;
             }
         }
+    }
+}
+
+@media screen and (max-width: 870px){
+    #site-footer{
+        .row{
+            flex-direction: column;
+            gap: rem(60);
+
+            &:last-of-type{
+                flex-direction: column-reverse;
+            }
+
+            .footer-info{
+                flex-direction: column;
+                gap: rem(60);
+            }
+        }
+
     }
 }

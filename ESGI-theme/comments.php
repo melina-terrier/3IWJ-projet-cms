@@ -1,9 +1,3 @@
-<?php
-if (post_password_required()) {
-    return;
-}
-?>
-
 <div id="comments" class="comments-area">
     <?php if (have_comments()) : ?>
         <h4 class="comments-title">
@@ -18,7 +12,7 @@ if (post_password_required()) {
             wp_list_comments(array(
                 'style'      => 'ul',
                 'short_ping' => true,
-                'callback'   => 'esgi_comment_callback', // Utilisation d'une fonction personnalisée
+                'callback'   => 'esgi_comment_callback',
             ));
             ?>
         </ul>
@@ -38,9 +32,7 @@ if (post_password_required()) {
             'author' => '<p class="comment-form-author"><label for="author">' . __('Full Name', 'esgi') . '</label>' .
                 '<input id="author" name="author" type="text" value="" size="30" /></p>',
         ),
-        'comment_field' => '<p class="comment-form-comment">
-            <label for="comment">' . __('Message', 'esgi') . '</label>' .
-            '<textarea id="comment" name="comment" rows="5" required></textarea></p>',
+        'comment_field' => '<p class="comment-form-comment"><div class="textarea-container"><textarea id="comment" name="comment" rows="5" placeholder="Message" required></textarea></div></p>',
         'title_reply' => '',
         'label_submit' => __('Submit', 'esgi'),
         'logged_in_as' => '<p class="logged-in-as">' . 

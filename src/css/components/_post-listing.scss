@@ -2,12 +2,11 @@
     width: 65%;
 
     .post-list{
-        display: flex;
-        flex-wrap: wrap;
+        display: grid;
         gap: rem(48);
+        grid-template-columns: 1fr 1fr;
     
         .post-item{
-            width: calc(50% - rem(48));
             display: flex;
             flex-direction: column;
             gap: rem(16);
@@ -49,7 +48,11 @@
 
 .blog .page-container{
     max-width: rem(1600);
-    margin: auto;
+    margin: rem(76) auto;
+
+    h1{
+        margin-bottom: rem(128);
+    }
 
     .row{
         display: flex;

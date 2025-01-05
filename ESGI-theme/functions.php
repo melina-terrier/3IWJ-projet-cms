@@ -1,5 +1,6 @@
 <?php
 
+// Ajout du menu
 add_action('after_setup_theme', 'esgi_register_nav_menus');
 function esgi_register_nav_menus()
 {
@@ -8,6 +9,7 @@ function esgi_register_nav_menus()
     ]);
 }
 
+// Mise en place du setup du thème
 add_action('after_setup_theme', 'esgi_theme_setup');
 function esgi_theme_setup()
 {
@@ -16,7 +18,10 @@ function esgi_theme_setup()
     add_theme_support('widgets');
 }
 
+
+// Ajout des éléments dans le customizer
 function customizer_sections($wp_customize) {
+
     /**
      * Section des Partenaires
      */
@@ -25,7 +30,6 @@ function customizer_sections($wp_customize) {
         'priority' => 30,
     ));
 
-    // Titre de la section des partenaires
     $wp_customize->add_setting('partners_title', array(
         'sanitize_callback' => 'sanitize_text_field',
         'transport'         => 'refresh',
@@ -35,10 +39,9 @@ function customizer_sections($wp_customize) {
         'type'        => 'text',
         'section'     => 'partners_section',
         'label'       => __('Titre de la section', 'esgi'),
-        'description' => __('Change le titre de la section des partenaires.', 'yourtheme'),
+        'description' => __('Change le titre de la section des partenaires.', 'esgi'),
     ));
 
-    // Champs pour les logos des partenaires
     for ($i = 1; $i <= 6; $i++) {
         $wp_customize->add_setting("partner_logo_$i", array(
             'sanitize_callback' => 'esc_url_raw',
@@ -46,11 +49,12 @@ function customizer_sections($wp_customize) {
         ));
 
         $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, "partner_logo_$i", array(
-            'label'    => sprintf(__('Logo du partenaire %d', 'yourtheme'), $i),
+            'label'    => sprintf(__('Logo du partenaire %d', 'esgi'), $i),
             'section'  => 'partners_section',
             'settings' => "partner_logo_$i",
         )));
     }
+
 
     /**
      * Section a propos
@@ -97,6 +101,7 @@ function customizer_sections($wp_customize) {
         ));
     }
 
+
     /**
      * Section des services
      */
@@ -105,7 +110,6 @@ function customizer_sections($wp_customize) {
         'priority' => 60,
     ));
 
-    // Titre de la section des membres
     $wp_customize->add_setting('services_title', array(
         'sanitize_callback' => 'sanitize_text_field',
         'transport'         => 'refresh',
@@ -115,7 +119,7 @@ function customizer_sections($wp_customize) {
         'type'        => 'text',
         'section'     => 'services_section',
         'label'       => __('Titre de la section', 'esgi'),
-        'description' => __('Change le titre de la section des services.', 'yourtheme'),
+        'description' => __('Change le titre de la section des services.', 'esgi'),
     ));
 
     $wp_customize->add_setting('service_description', array(
@@ -127,10 +131,9 @@ function customizer_sections($wp_customize) {
         'type'        => 'text',
         'section'     => 'services_section',
         'label'       => __('Titre du service', 'esgi'),
-        'description' => __('Change le titre du service.', 'yourtheme'),
+        'description' => __('Change le titre du service.', 'esgi'),
     ));
 
-    // Champs pour les images des membres
     for ($i = 1; $i <= 3; $i++) {
         $wp_customize->add_setting("service_image_$i", array(
             'sanitize_callback' => 'esc_url_raw',
@@ -152,6 +155,7 @@ function customizer_sections($wp_customize) {
         'title'    => __('Section de contact', 'esgi'),
         'priority' => 80,
     ));
+
     for ($i = 1; $i <= 3; $i++) {
         $wp_customize->add_setting("contact_title_$i", array(
             'sanitize_callback' => 'sanitize_text_field',
@@ -177,6 +181,16 @@ function customizer_sections($wp_customize) {
             'description' => __('Change le contenu du paragraphe de contact.', 'esgi'),
         ));
     }
+    $wp_customize->add_setting("contact_image", array(
+        'sanitize_callback' => 'esc_url_raw',
+        'transport'         => 'refresh',
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, "about_image", array(
+        'label'    => __('Photo de la section contact', 'esgi'),
+        'section'  => 'contact_info',
+        'settings' => "contact_image",
+    )));
 
 
     /**
@@ -222,6 +236,7 @@ function customizer_sections($wp_customize) {
         ));
     }
 
+
     /**
      * Icones réseaux sociaux
      */
@@ -252,8 +267,8 @@ function customizer_sections($wp_customize) {
             'section'     => 'social_icons',
             'label'       => __("Lien du réseau social $i", 'esgi'),
         ));
-
     }
+
 
     /**
      * Section Couleurs
@@ -263,18 +278,44 @@ function customizer_sections($wp_customize) {
         'priority' => 20,
     ));
 
-    // Définir 4 couleurs
-    for ($i = 1; $i <= 4; $i++) {
-        $wp_customize->add_setting("custom_color_$i", array(
-            'default'           => '#ffffff', // Couleur par défaut
+    // Définir la couleur primaire
+    $wp_customize->add_setting('primary_color', array(
+        'default'           => '#007BFF', // Bleu par défaut
+        'sanitize_callback' => 'sanitize_hex_color',
+        'transport'         => 'refresh',
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'primary_color', array(
+        'label'    => __('Couleur primaire', 'esgi'),
+        'section'  => 'colors_section',
+        'settings' => 'primary_color',
+    )));
+
+    // Définir la couleur secondaire
+    $wp_customize->add_setting('secondary_color', array(
+        'default'           => '#6C757D', // Gris par défaut
+        'sanitize_callback' => 'sanitize_hex_color',
+        'transport'         => 'refresh',
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'secondary_color', array(
+        'label'    => __('Couleur secondaire', 'esgi'),
+        'section'  => 'colors_section',
+        'settings' => 'secondary_color',
+    )));
+
+    // Définir les couleurs pour les dégradés
+    for ($i = 1; $i <= 2; $i++) {
+        $wp_customize->add_setting("gradient_color_$i", array(
+            'default'           => $i === 1 ? '#ff7f50' : '#ff4500', // Couleurs par défaut pour le dégradé
             'sanitize_callback' => 'sanitize_hex_color',
             'transport'         => 'refresh',
         ));
 
-        $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, "custom_color_$i", array(
-            'label'    => sprintf(__('Couleur %d', 'esgi'), $i),
+        $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, "gradient_color_$i", array(
+            'label'    => sprintf(__('Couleur dégradé %d', 'esgi'), $i),
             'section'  => 'colors_section',
-            'settings' => "custom_color_$i",
+            'settings' => "gradient_color_$i",
         )));
     }
 
@@ -282,6 +323,7 @@ function customizer_sections($wp_customize) {
 add_action('customize_register', 'customizer_sections');
 
 
+// Ajout de la barre latérale
 add_action('widgets_init', 'esgi_widget_init');
 function esgi_widget_init()
 {
@@ -296,7 +338,7 @@ function esgi_widget_init()
     ]);
 }
 
-
+// Affichage des commentaires
 function esgi_comment_callback($comment, $args, $depth) {
     ?>
     <li <?php comment_class(); ?> id="comment-<?php comment_ID(); ?>" class="comment-body">
@@ -307,9 +349,12 @@ function esgi_comment_callback($comment, $args, $depth) {
             <?php comment_text(); ?>
         </div>
         <div class="reply-link">
+        <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0.259652 4.93237L5.75978 0.182841C6.24122 -0.23294 7 0.104591 7 0.750466V3.25212C12.0197 3.30959 16 4.31562 16 9.07268C16 10.9927 14.7631 12.8948 13.3958 13.8893C12.9692 14.1997 12.3611 13.8102 12.5184 13.3071C13.9354 8.77547 11.8463 7.5724 7 7.50265V10.25C7 10.8969 6.24062 11.2329 5.75978 10.8176L0.259652 6.06762C-0.0863164 5.76881 -0.0867851 5.23159 0.259652 4.93237Z" fill="#050A3A"/>
+        </svg>
             <?php
             comment_reply_link(array_merge($args, array(
-                'reply_text' => __('Reply', 'yourtheme'),
+                'reply_text' => __('Reply', 'esgi'),
                 'depth'      => $depth,
                 'max_depth'  => $args['max_depth'],
             )));
@@ -320,23 +365,20 @@ function esgi_comment_callback($comment, $args, $depth) {
 }
 
 
+// Pagination des articles
 add_action('wp_enqueue_scripts', 'esgi_theme_assets');
 function esgi_theme_assets()
 {
-
     wp_enqueue_style('main', get_stylesheet_uri());
     wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
     wp_enqueue_script('main', get_stylesheet_directory_uri() . '/js/main.js');
-
-    // Injection de variable dans le javascript
-    $big = 999999999; // need an unlikely integer
+    $big = 999999999;
     $values = [
         'ajaxURL' => admin_url('admin-ajax.php'),
         'base' => esc_url(get_pagenum_link($big))
     ];
     wp_localize_script('main', 'esgiValues', $values);
 }
-
 add_action('wp_ajax_loadPosts', 'ajax_load_posts');
 add_action('wp_ajax_nopriv_loadPosts', 'ajax_load_posts');
 
@@ -345,37 +387,36 @@ function esgi_paginate_links($link)
 {
     return remove_query_arg(['action', 'page', 'base'], $link);
 }
+
 function ajax_load_posts()
 {
-    //echo $_GET['page'], '-', $_GET['action'];
     $paged = $_GET['page'];
     $base = $_GET['base'];
-    // Ouvrir le buffer php
     ob_start();
-    // include la liste
     include('template-parts/posts_list.php');
-    // rendre le contenu du buffer et le fermer
     echo ob_get_clean();
-
     wp_die();
 }
 
+
+// Prise en charge des images SVG
 function wpc_mime_types($mimes) {
     $mimes['svg'] = 'image/svg+xml';
     return $mimes;
-  }
-  add_filter('upload_mimes', 'wpc_mime_types');
+}
+add_filter('upload_mimes', 'wpc_mime_types');
 
+
+// Ajout de l'extrait pour les posts
 function enable_post_excerpts() {
     add_post_type_support('post', 'excerpt');
 }
 add_action('init', 'enable_post_excerpts');
 
 
-
+// Ajout d'un post type pour les membres
 add_action('init', 'register_custom_post_type');
 function register_custom_post_type(){
-
     $member_labels = array(
         'name' => 'Membres',
         'singular_name' => 'Membre',
@@ -398,75 +439,118 @@ function register_custom_post_type(){
         'rewrite' => array('slug' => 'members'),
         'menu_icon' => 'dashicons-groups',
         'supports' => array('title', 'editor', 'thumbnail'),
+        'exclude_from_search' => true,
     );
 
     register_post_type('members', $args);
 }
 
-// Créer un shortcode pour le formulaire de contact
+
+// Shortcode pour le formulaire de contact
 function my_contact_form_shortcode() {
-    // Vérifier si le formulaire est soumis
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['my_contact_form'])) {
-        $name    = sanitize_text_field($_POST['name']);
         $email   = sanitize_email($_POST['email']);
         $message = sanitize_textarea_field($_POST['message']);
         
-        // Valider les champs
-        if (!empty($name) && !empty($email) && !empty($message)) {
-            // Préparer l'email
-            $to      = get_option('admin_email'); // Adresse de l'administrateur
-            $subject = __('New Contact Form Submission', 'yourtheme');
-            $headers = ['Content-Type: text/html; charset=UTF-8', 'From: ' . $name . ' <' . $email . '>'];
+        if (!empty($email) && !empty($message)) {
+            $to      = get_option('admin_email'); 
+            $subject = __('New Contact Form Submission', 'esgi');
+            $headers = ['Content-Type: text/html; charset=UTF-8', 'From: ' . $email . ' <' . $email . '>'];
             
             $body = "
-                <p><strong>Name:</strong> $name</p>
                 <p><strong>Email:</strong> $email</p>
                 <p><strong>Message:</strong></p>
                 <p>$message</p>
             ";
             
-            // Envoyer l'email
-            wp_mail($to, $subject, $body, $headers);
+            wp_mail('melina.terrier@gmail.com', $subject, $body, $headers);
             
-            // Message de confirmation
-            $response = '<p class="contact-form-success">' . __('Thank you for your message!', 'yourtheme') . '</p>';
+            $response = '<p class="contact-form-success">' . __('Thank you for your message!', 'esgi') . '</p>';
         } else {
-            // Message d'erreur
-            $response = '<p class="contact-form-error">' . __('Please fill in all the fields.', 'yourtheme') . '</p>';
+            $response = '<p class="contact-form-error">' . __('Please fill in all the fields.', 'esgi') . '</p>';
         }
     }
 
-    // Formulaire HTML
     ob_start();
     ?>
-    <h2>Write us here</h2>
-    <p>Go! Don't be shy.</p>
-    <form method="post" class="contact-form">
-        <?php if (isset($response)) echo $response; ?>
-            <input type="text" name="subject" id="subject" placeholder="Subject" required>
-            <input type="email" name="email" id="email" placeholder="Email" required>
-            <input type="tel" name="phone" id="phone" placeholder="Phone no." required>
-            <textarea name="message" id="message" rows="5" placeholder="Message" required></textarea>
-            <button type="submit" name="my_contact_form">Submit</button>
-    </form>
+    <div class="contact-form-container">
+        <h2>Write us here</h2>
+        <p>Go! Don't be shy.</p>
+        <form method="post" class="contact-form">
+            <?php if (isset($response)) echo $response; ?>
+                <input type="text" name="subject" id="subject" placeholder="Subject" required>
+                <input type="email" name="email" id="email" placeholder="Email" required>
+                <input type="tel" name="phone" id="phone" placeholder="Phone no." required>
+                <div class="textarea-container">
+                    <textarea name="message" id="message" rows="5" placeholder="Message" required></textarea>
+                </div>
+                <button type="submit" name="my_contact_form">Submit</button>
+        </form>
+    </div>
     <?php
     return ob_get_clean();
 }
 add_shortcode('my_contact_form', 'my_contact_form_shortcode');
 
+
+// Ajout des couleurs dans le style
 function add_dynamic_styles_to_head() {
     $custom_colors = [];
-    for ($i = 1; $i <= 4; $i++) {
-        $custom_colors[] = get_theme_mod("custom_color_$i", '#ffffff'); // Valeur par défaut
+    for ($i = 1; $i <= 2; $i++) {
+        $custom_colors[] = get_theme_mod("gradient_color_$i", '#ffffff');
     }
+
+    $primary_color = get_theme_mod('primary_color', '#007BFF');
+    $secondary_color = get_theme_mod('secondary_color', '#6C757D');
 
     echo '<style>
         :root {
-            --color-1: ' . esc_attr($custom_colors[0]) . ';
-            --color-2: ' . esc_attr($custom_colors[1]) . ';
-            --color-3: ' . esc_attr($custom_colors[2]) . ';
-            --color-4: ' . esc_attr($custom_colors[3]) . ';
+            --primary-color: ' . esc_attr($primary_color) . ';
+            --secondary-color: ' . esc_attr($secondary_color) . ';
+            --gradient-color-1: ' . esc_attr($custom_colors[0]) . ';
+            --gradient-color-2: ' . esc_attr($custom_colors[1]) . ';
         }
     </style>';
 }
 add_action('wp_head', 'add_dynamic_styles_to_head');
+
+
+function esgi_contact_section_shortcode() {
+    // Récupère les données depuis le Customizer
+    $columns = [];
+    for ($i = 1; $i <= 3; $i++) {
+        $title = get_theme_mod("contact_title_$i", '');
+        $content = get_theme_mod("contact_content_$i", '');
+        if (!empty($title) || !empty($content)) {
+            $columns[] = [
+                'title'   => $title,
+                'content' => $content,
+            ];
+        }
+    }
+    $image_url = get_theme_mod("contact_image", '');
+
+    // Construction du HTML des colonnes
+    $output = '<div class="esgi-contact-columns">';
+    foreach ($columns as $column) {
+        $output .= '<div class="contact-column">';
+        if (!empty($column['title'])) {
+            $output .= '<h5>' . esc_html($column['title']) . '</h5>';
+        }
+        if (!empty($column['content'])) {
+            $output .= wpautop(esc_html($column['content']));
+        }
+        $output .= '</div>';
+    }
+    $output .= '</div>';
+
+    // Ajout de l'image en dessous des colonnes
+    if (!empty($image_url)) {
+        $output .= '<div class="esgi-contact-image">';
+        $output .= '<img src="' . esc_url($image_url) . '" alt="' . esc_attr__('Image de contact', 'esgi') . '">';
+        $output .= '</div>';
+    }
+
+    return $output;
+}
+add_shortcode('contact_info', 'esgi_contact_section_shortcode');

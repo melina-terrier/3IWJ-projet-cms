@@ -1,7 +1,6 @@
 .about{
     display: flex;
-    gap: rem(185);
-    max-width: rem(1500);
+    gap: rem(149);
     align-items: center;
     margin-top: rem(139);
 
@@ -14,6 +13,8 @@
         display: flex; 
         flex-direction: column;
         gap: rem(56);
+        width: 40%;
+        padding: rem(36);
 
         .about-group-content{
             display: flex;
@@ -27,4 +28,22 @@
 
     }
 
+}
+
+
+@media screen and (max-width: 1024px){
+    .about{
+        flex-direction: column;
+        gap: rem(50);
+
+        img{
+            width: 100%;
+        }
+
+        .about-content{
+            gap: rem(40);
+            width: 100%;
+        }
+    }
+    
 }

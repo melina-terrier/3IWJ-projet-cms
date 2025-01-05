@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<div class="page-container single-post-layout">
+<div class="page-container single-post-layout wrapper">
     <h1 class="post-title"><?php the_title(); ?></h1>
     
     <div class="row">
@@ -52,7 +52,7 @@
                     </div>
                 </article>
             <?php endwhile; else : ?>
-                <p><?php esc_html_e('Sorry, no posts matched your criteria.', 'yourtheme'); ?></p>
+                <p><?php esc_html_e('Aucun post ne correspond.', 'esgi'); ?></p>
             <?php endif; ?>
     </div>
 </div>

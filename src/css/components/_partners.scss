@@ -1,6 +1,6 @@
 .partners{
-    max-width: rem(1600);
-    margin: rem(132) auto rem(269) auto;
+    // margin: rem(132) auto 0 auto;
+    padding: rem(36);
 
     h2{
         margin-bottom: rem(64);
@@ -9,6 +9,33 @@
     .partners-container{
         display: flex;
         flex-wrap: wrap;
-        gap: rem(114);
+        gap: rem(86);
     }
+}
+
+
+@media screen and (max-width: 1024px){
+    .partners{
+        margin: rem(100) auto rem(100) auto;
+        padding: rem(36);
+        
+        h2{
+            margin-bottom: rem(40);
+        }
+        
+        .partners-container{
+            gap: rem(50);
+        }
+    }
+    
+}
+
+@media screen and (max-width: 400px){
+    .partners{
+        
+        .partners-container{
+            justify-content: center;
+        }
+    }
+    
 }

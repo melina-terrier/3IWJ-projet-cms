@@ -1,8 +1,8 @@
 .services{
-    padding-top: rem(130);
+    padding-top: rem(67);
     
     h2{
-        padding-bottom: rem(64);
+        padding: rem(64) rem(36);
         max-width: rem(1600);
         margin: auto;
     }
@@ -30,4 +30,24 @@
             }
         }
     }
+}
+
+@media screen and (max-width: 960px){
+    .services{
+        padding: rem(100) rem(36) rem(36) rem(36);
+        
+        h2{
+            padding: rem(40) 0;
+        }
+        
+        .services-container{
+            flex-direction: column;
+            gap: rem(50);
+            
+            .service-image{
+                width: 100%;
+            }
+        }
+    }
+    
 }

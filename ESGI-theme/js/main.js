@@ -52,3 +52,19 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+
+
+document.addEventListener('DOMContentLoaded', function () {
+	const searchButton = document.getElementById('search-button');
+	const searchFormContainer = document.getElementById('search-form-container');
+  
+	searchButton.addEventListener('click', function () {
+	  // Basculer la visibilité du formulaire
+	  if (searchFormContainer.style.display === 'none') {
+		searchFormContainer.style.display = 'block';
+	  } else {
+		searchFormContainer.style.display = 'none';
+	  }
+	});
+  });
+  

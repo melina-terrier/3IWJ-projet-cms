@@ -1,11 +1,11 @@
 <?php
-// Définir la page actuelle
+
 if (!isset($paged)) {
     $paged = (get_query_var('paged')) ? absint(get_query_var('paged')) : 1;
 }
-// Arguments pour la requête personnalisée
+
 $args = [
-    'posts_per_page' => 3,
+    'posts_per_page' => 2,
     'paged'          => $paged,
 ];
 
@@ -44,13 +44,13 @@ $the_query = new WP_Query($args);
             'format'    => '?paged=%#%',
             'current'   => max(1, $paged),
             'total'     => $the_query->max_num_pages,
-            'prev_text' => __('&laquo; Previous', 'yourtheme'),
-            'next_text' => __('Next &raquo;', 'yourtheme'),
+            'prev_text' => __('&laquo; Previous', 'esgi'),
+            'next_text' => __('Next &raquo;', 'esgi'),
         ]);
         ?>
     </nav>
     <?php else : ?>
-        <p><?php _e('No posts found.', 'yourtheme'); ?></p>
+        <p><?php _e('No posts found.', 'esgi'); ?></p>
     <?php endif; ?>
 
     <?php

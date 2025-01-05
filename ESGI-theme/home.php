@@ -2,7 +2,7 @@
 get_header(); 
 ?>
 
-<div class="page-container">
+<div class="page-container wrapper">
 
             <?php if (have_posts()) : ?>
                 
@@ -17,21 +17,19 @@ get_header();
                         } elseif (is_date()) {
                             echo get_the_date();
                         } else {
-                            _e('Blog.', 'yourtheme');
+                            _e('Blog.', 'esgi');
                         }
                         ?>
                     </h1>
 
             <div class="row">
 
-                    <!-- Sidebar -->
         <?php get_sidebar(); ?>
-                <!-- Liste des articles -->
                 <div id="ajax-response">
                     <?php include('template-parts/posts_list.php'); ?>
                 </div>
             <?php else : ?>
-                <p><?php _e('No posts found.', 'yourtheme'); ?></p>
+                <p><?php _e('No posts found.', 'esgi'); ?></p>
             <?php endif; ?>
 
             </div>
